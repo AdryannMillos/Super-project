@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateLivestreamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('livestreams', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('match_id')->nullable(false);
-            $table->integer('subscription_group_id')->nullable(false);
-            $table->integer('result')->nullable(true);
+            $table->string('name')->nullable(false);
+            $table->datetime('date')->nullable(false);
+            $table->string('link')->nullable(true);
+            $table->integer('match_id')->nullable(true);
             $table->timestamps();
 
-            $table->foreign('subscription_group_id')->references('id')->on('subscriptions')->restrictOnDelete();
             $table->foreign('match_id')->references('id')->on('matchs')->restrictOnDelete();
         });
     }
@@ -32,6 +32,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('livestreams');
     }
 }

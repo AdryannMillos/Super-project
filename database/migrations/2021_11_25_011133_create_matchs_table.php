@@ -17,8 +17,9 @@ class CreateMatchsTable extends Migration
             $table->increments('id');
             $table->integer('subscription_group_one_id')->nullable(false);
             $table->integer('subscription_group_two_id')->nullable(false);
+            $table->integer('round')->nullable(true);
             $table->timestamps();
-    
+
             $table->foreign('subscription_group_one_id')->references('id')->on('subscription_groups')->restrictOnDelete();
             $table->foreign('subscription_group_two_id')->references('id')->on('subscription_groups')->restrictOnDelete();
 

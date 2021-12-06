@@ -15,10 +15,11 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('player_id')->nullable(false);
+            $table->integer('user_id')->nullable(false);
             $table->integer('championship_id')->nullable(false);
             $table->string('decklist')->nullable(false);
-            $table->enum('last_position', ['GROUP_PHASE','TOP32','TOP16','TOP8','TOP4','SECOND','CHAMPION'])->nullable(false);
+            $table->enum('last_position', ['group_phase','classification','top32','top16','top8','top4','vice','champion'])->nullable(false);
+            $table->enum('payment_status', ['standby','canceled','finished'])->nullable(false);
             $table->timestamps();
 
             $table->foreign('player_id')->references('id')->on('players')->restrictOnDelete();
