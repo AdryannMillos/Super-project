@@ -17,8 +17,9 @@ class CreateSubscriptionGroupsTable extends Migration
             $table->increments('id');
             $table->integer('subscription_id')->nullable(false);
             $table->integer('group_id')->nullable(false);
+            $table->enum('status', ['current','finished'])->nullable(false);
             $table->timestamps();
-    
+
             $table->foreign('subscription_id')->references('id')->on('subscriptions')->restrictOnDelete();
             $table->foreign('group_id')->references('id')->on('groups')->restrictOnDelete();
         });

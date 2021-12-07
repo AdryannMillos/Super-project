@@ -1,0 +1,6 @@
+infrastructure/
+
+buildspec.yml
+docker-compose.yml
+README.md
+.env.example
