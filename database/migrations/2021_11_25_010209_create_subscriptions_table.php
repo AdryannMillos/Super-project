@@ -22,7 +22,7 @@ class CreateSubscriptionsTable extends Migration
             $table->enum('payment_status', ['standby','canceled','finished'])->nullable(false);
             $table->timestamps();
 
-            $table->foreign('player_id')->references('id')->on('players')->restrictOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
             $table->foreign('championship_id')->references('id')->on('championships')->restrictOnDelete();
         });
     }
