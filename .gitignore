@@ -246,3 +246,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,windows,macos,git,visualstudiocode,composer,terraform,phpstorm,dotenv
 
 idea/*
+node_modules

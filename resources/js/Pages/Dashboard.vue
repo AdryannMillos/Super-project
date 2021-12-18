@@ -1,30 +1,39 @@
 <template>
-    <app-layout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <welcome />
-                </div>
-            </div>
-        </div>
-    </app-layout>
+    <admin-layout>
+  <div>
+    <div class="flex flex-wrap">
+      <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+        <card-line-chart />
+      </div>
+      <div class="w-full xl:w-4/12 px-4">
+        <card-bar-chart />
+      </div>
+    </div>
+    <div class="flex flex-wrap mt-4">
+      <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+        <card-page-visits />
+      </div>
+      <div class="w-full xl:w-4/12 px-4">
+        <card-social-traffic />
+      </div>
+    </div>
+  </div>
+    </admin-layout>
 </template>
-
 <script>
-    import { defineComponent } from 'vue'
-    import AppLayout from '@/Layouts/AppLayout.vue'
-    import Welcome from '@/Jetstream/Welcome.vue'
-
-    export default defineComponent({
-        components: {
-            AppLayout,
-            Welcome,
-        },
-    })
+import CardLineChart from "@/components/Cards/CardLineChart.vue";
+import CardBarChart from "@/components/Cards/CardBarChart.vue";
+import CardPageVisits from "@/components/Cards/CardPageVisits.vue";
+import CardSocialTraffic from "@/components/Cards/CardSocialTraffic.vue";
+import AdminLayout from "@/Layouts/AdminLayout.vue";
+export default {
+  name: "dashboard-page",
+  components: {
+    CardLineChart,
+    CardBarChart,
+    CardPageVisits,
+    CardSocialTraffic,
+    AdminLayout
+  },
+};
 </script>
