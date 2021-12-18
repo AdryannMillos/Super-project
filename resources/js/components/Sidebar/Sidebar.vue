@@ -82,46 +82,28 @@
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
             <Link
-              href="route('dashboard')"
-              v-slot="{ href, navigate, isActive }" 
-            >
-              <a
-                :href="href"
-                @click="navigate"
+              href="/dashboard"
+        
                 class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
               >
-                <i
-                  class="fas fa-tv mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
+                <i class="fas fa-tv mr-2 text-sm"></i>
                 Dashboard
-              </a>
             </Link>
           </li>
 
           <li class="items-center">
             <Link
-              to="/admin/settings"
-              v-slot="{ href, navigate, isActive }"
+              href="/settings"
+             
             >
               <a
-                :href="href"
-                @click="navigate"
+             
                 class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
+                
               >
                 <i
                   class="fas fa-tools mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
+                
                 ></i>
                 Settings
               </a>
@@ -131,21 +113,15 @@
           <li class="items-center">
             <Link
               to="/admin/tables"
-              v-slot="{ href, navigate, isActive }"
+             
             >
               <a
-                :href="href"
-                @click="navigate"
+               
                 class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
+               
               >
                 <i
                   class="fas fa-table mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Tables
               </a>
@@ -153,20 +129,13 @@
           </li>
 
           <li class="items-center">
-            <Link to="/admin/maps" v-slot="{ href, navigate, isActive }">
+            <Link to="/admin/maps">
               <a
-                :href="href"
-                @click="navigate"
                 class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
+               
               >
                 <i
                   class="fas fa-map-marked mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Maps
               </a>
