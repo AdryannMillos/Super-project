@@ -24,6 +24,18 @@ Route::get('/', function () {
     ]);
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::get('/', function () {
+            return Inertia::render('Dashboard');
+        });
+        Route::get('/hue', function () {
+            return Inertia::render('Profile.Show');
+        });
+        Route::resource('championship', 'ChampionshipController');
+    });
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
