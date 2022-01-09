@@ -19,6 +19,7 @@ class CreateResultsTable extends Migration
             $table->integer('subscription_group_id')->nullable(false);
             $table->integer('result')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('subscription_group_id')->references('id')->on('subscriptions')->restrictOnDelete();
             $table->foreign('match_id')->references('id')->on('matchs')->restrictOnDelete();
