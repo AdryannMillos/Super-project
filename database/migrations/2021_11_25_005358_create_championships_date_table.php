@@ -21,6 +21,7 @@ class CreateChampionshipsDateTable extends Migration
             $table->date('date_end')->nullable(false);
             $table->enum('type', ['subscription','group_phase','top32','top16','top8','top4','final','recap','classification'])->nullable(false);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('championship_id')->references('id')->on('championships')->restrictOnDelete();
         });

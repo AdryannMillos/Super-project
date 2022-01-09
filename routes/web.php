@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChampionshipController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,6 +23,18 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::get('/', function () {
+            return Inertia::render('Dashboard');
+        });
+        Route::get('/hue', function () {
+            return Inertia::render('Profile.Show');
+        });
+        Route::resource('championship', ChampionshipController::class);
+    });
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

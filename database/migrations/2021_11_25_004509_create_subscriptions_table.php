@@ -21,6 +21,7 @@ class CreateSubscriptionsTable extends Migration
             $table->enum('last_position', ['group_phase','classification','top32','top16','top8','top4','vice','champion'])->nullable(false);
             $table->enum('payment_status', ['standby','canceled','finished'])->nullable(false);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
             $table->foreign('championship_id')->references('id')->on('championships')->restrictOnDelete();

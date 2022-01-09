@@ -20,6 +20,7 @@ class CreateLivestreamsTable extends Migration
             $table->string('link')->nullable(true);
             $table->integer('match_id')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('match_id')->references('id')->on('matchs')->restrictOnDelete();
         });
