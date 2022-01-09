@@ -15,12 +15,13 @@ class CreateChampionshipsTable extends Migration
     {
         Schema::create('championships', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome')->nullable(false);
+            $table->string('name')->nullable(false);
             $table->string('logo')->nullable(true);
             $table->boolean('weak_off')->default(true);
             $table->enum('status', ['standby','current','canceled','finished'])->nullable(false);
-            
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
