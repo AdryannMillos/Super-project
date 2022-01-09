@@ -4,6 +4,9 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@/assets/styles/tailwind.css";
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
