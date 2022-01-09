@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Models\Championship;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Collection;
 
-class ChampionshipRepository implements InterfaceRepository
+final class ChampionshipRepository implements InterfaceRepository
 {
     protected Championship $championshipModel;
 
@@ -16,7 +16,7 @@ class ChampionshipRepository implements InterfaceRepository
         $this->championshipModel = $championshipModel;
     }
 
-    public function getAll()
+    public function getAll() : Collection
     {
         return $this->championshipModel::all();
     }
@@ -26,23 +26,23 @@ class ChampionshipRepository implements InterfaceRepository
         return $this->championshipModel::find($id);
     }
 
-    public function createOrUpdate( $id = null, $collection = [] )
+    public function createOrUpdate($request = [], $id = null): bool
     {
         if(is_null($id)) {
             $championship = new Championship();
-            $championship->name = $collection['name'];
-            $championship->logo = $collection['logo'];
-            $championship->weak_off = $collection['weak_off'];
-            $championship->status = $collection['status'];
+            $championship->name = $request['name'];
+            $championship->logo = $request['logo'];
+            $championship->weak_off = $request['weak_off'];
+            $championship->status = $request['status'];
 
             return $championship->save();
         }
         $championship = $this->championshipModel::find($id);
 
-        $championship->name = $collection['name'];
-        $championship->logo = $collection['logo'];
-        $championship->weak_off = $collection['weak_off'];
-        $championship->status = $collection['status'];
+        $championship->name = $request['name'];
+        $championship->logo = $request['logo'];
+        $championship->weak_off = $request['weak_off'];
+        $championship->status = $request['status'];
 
         return $championship->save();
     }

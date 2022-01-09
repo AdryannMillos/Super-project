@@ -7,7 +7,7 @@ interface InterfaceRepository
 
     public function getById(int $id);
 
-    public function createOrUpdate( $id = null, $collection = [] );
+    public function createOrUpdate( $request = [], $id = null);
 
     public function delete(int $id);
 }
