@@ -19,6 +19,7 @@ class CreateGroupsTable extends Migration
             $table->string('name')->nullable(false);
             $table->enum('type', ['group_phase','classification','top32','top16','top8','top4','final'])->nullable(false);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('championship_id')->references('id')->on('championships')->restrictOnDelete();
 
