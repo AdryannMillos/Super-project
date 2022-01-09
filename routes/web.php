@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-        Route::get('/', function () {
+        Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');
         });
         Route::get('/hue', function () {
@@ -37,9 +37,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
-    return Inertia::render('Settings');
-})->name('dashboard');

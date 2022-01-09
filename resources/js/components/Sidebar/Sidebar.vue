@@ -82,7 +82,7 @@
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
             <Link
-              href="/dashboard"
+              href="/admin/dashboard"
         
                 class="text-xs uppercase py-3 font-bold block"
               >
@@ -93,7 +93,7 @@
 
           <li class="items-center">
             <Link
-              href="/settings"
+              href="/admin/championship"
              
             >
               <a
@@ -105,7 +105,7 @@
                   class="fas fa-tools mr-2 text-sm"
                 
                 ></i>
-                Settings
+                Championship
               </a>
             </Link>
           </li>
