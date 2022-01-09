@@ -17,7 +17,7 @@ final class ChampionshipService
         $this->championshipRepository = $championshipRepository;
     }
 
-    public function getAll(): Collection
+    public function getAll()
     {
         return $this->championshipRepository->getAll();
     }
